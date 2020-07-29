@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2018",
     "module": "ESNext",
-    "outDir": "dir",
+    "outDir": "dist",
     "moduleResolution": "Node",
     "lib": [
       "ESNext",
