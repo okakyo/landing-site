@@ -1,11 +1,11 @@
 <template>
   <v-app app>
     <index-header />
-    <v-content id="contents">
+    <v-main id="contents">
       <v-slide-y-reverse-transition>
         <nuxt />
       </v-slide-y-reverse-transition>
-    </v-content>
+    </v-main>
     <v-footer id="footer">
       Oka Kyohei has All Rights Reserved
     </v-footer>

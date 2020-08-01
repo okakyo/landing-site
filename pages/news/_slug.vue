@@ -7,7 +7,7 @@
             {{ page.title }}
           </v-card-title>
           <v-card-subtitle>
-            {{ page.updatedAt }}
+            {{ page.updatedAt | dateParser }}
           </v-card-subtitle>
           <v-divider></v-divider>
           <v-card-text class="ma-3">
@@ -20,6 +20,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
+import { dateParser } from '@/functions'
 export default defineComponent({
   name: 'NewsDetail',
   components: {},
@@ -28,6 +29,11 @@ export default defineComponent({
     return {
       page,
     }
+  },
+  filters: {
+    dateParser(date: string) {
+      return dateParser(date)
+    },
   },
 })
 </script>

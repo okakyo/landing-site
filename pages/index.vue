@@ -6,6 +6,7 @@
       :src="require('~/assets/img/wave.svg')"
     />
     <description-window :service-descriptions="serviceDescriptions" />
+    <price-window />
   </div>
 </template>
 <script lang="ts">

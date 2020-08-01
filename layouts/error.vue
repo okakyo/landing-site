@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-content>
+    <v-main>
       <v-container>
         <v-row class="ma-5" justify="center" align="center">
           <h1 v-if="error.statusCode === 404">
@@ -16,7 +16,7 @@
           </NuxtLink>
         </v-row>
       </v-container>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 

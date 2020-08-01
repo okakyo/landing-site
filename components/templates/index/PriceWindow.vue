@@ -1,17 +1,31 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col cols="12" md="4">
-        <v-card>
-          <v-card-title></v-card-title>
-        </v-card>
-      </v-col>
-    </v-row>
+    <v-lazy
+      v-model="isOn"
+      :options="{
+        threshold: 0.5,
+      }"
+      transition="fade-transition"
+    >
+      <v-row>
+        <v-col v-for="i in 3" :key="i" cols="12" md="4">
+          <v-card min-height="400px">
+            <v-card-title></v-card-title>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-lazy>
   </v-container>
 </template>
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, ref } from '@vue/composition-api'
 export default defineComponent({
   name: 'PriceWindow',
+  setup() {
+    const isOn = ref(false)
+    return {
+      isOn,
+    }
+  },
 })
 </script>
