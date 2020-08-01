@@ -7,7 +7,7 @@
             {{ page.title }}
           </v-card-title>
           <v-card-subtitle>
-            {{ page.updatedAt | dateParser }}
+            {{ page.createdAt | dateParser }}
           </v-card-subtitle>
           <v-divider></v-divider>
           <v-card-text class="ma-3">

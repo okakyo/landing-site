@@ -11,7 +11,7 @@
             >
               <v-card class="mx-5" nuxt :to="page.path" color="#00cba9">
                 <v-card-subtitle class="white--text">{{
-                  page.updatedAt | dateParser
+                  page.createdAt | dateParser
                 }}</v-card-subtitle>
                 <v-card-title class="headline white text--primary">{{
                   page.title
@@ -31,7 +31,7 @@ export default defineComponent({
   name: 'NewsIndex',
   async asyncData({ $content }) {
     const pages = await $content('news')
-      .only(['title', 'slug', 'updatedAt', 'path'])
+      .only(['title', 'slug', 'createdAt', 'path'])
       .fetch()
     return {
       pages,
