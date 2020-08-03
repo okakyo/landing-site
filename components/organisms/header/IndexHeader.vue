@@ -1,7 +1,7 @@
 <template>
   <v-app-bar app flat color="#00cba9">
     <v-btn text exact depressed dark nuxt to="/" color="text--white">
-      <h3>Kivitz</h3>
+      <h3>DENX</h3>
     </v-btn>
     <v-spacer />
     <v-btn
@@ -35,18 +35,19 @@ export default defineComponent({
   setup() {
     const smallBtn = ref<SmallBtn[]>([
       {
+        name: 'about',
+        url: '/about',
+        icon: '',
+      },
+      {
         name: 'news',
         url: '/news',
         icon: '',
       },
+
       {
         name: 'contact',
         url: '/contact',
-        icon: '',
-      },
-      {
-        name: '',
-        url: '',
         icon: '',
       },
     ])
