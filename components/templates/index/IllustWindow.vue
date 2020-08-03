@@ -14,7 +14,7 @@
           </v-col>
           <v-col cols="12" sm="10" md="4">
             <v-card outlined color="transparent" class="white--text">
-              <h1 class="mb-6 text-center">Hello World</h1>
+              <h1 class="mb-6 text-center">Hello DENX!</h1>
               <v-row justify="center">
                 <p>
                   Adod Morningd fgasdfgsdfgsfdgsdfgs gfgsdfgsdfg gsdfgsdfd
@@ -25,20 +25,6 @@
                 <p>
                   gegasdgadga dgadsgasdgasd gadsgasdgasdgasd gasdgasdg
                 </p>
-              </v-row>
-
-              <v-row justify="center" class="mt-3">
-                <v-col cols="8">
-                  <v-btn
-                    color="#373b3e"
-                    class="white--text"
-                    block
-                    nuxt
-                    rounded
-                    to="/user/login"
-                    >Login</v-btn
-                  >
-                </v-col>
               </v-row>
             </v-card>
           </v-col>
