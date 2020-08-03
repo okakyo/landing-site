@@ -23,7 +23,6 @@
       </v-row>
     </v-card>
     <v-divider />
-    <h4>一番古いニュースです</h4>
   </v-container>
 </template>
 <script lang="ts">

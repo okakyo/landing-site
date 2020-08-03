@@ -16,15 +16,9 @@
             <v-card outlined color="transparent" class="white--text">
               <h1 class="mb-6 text-center">Hello DENX!</h1>
               <v-row justify="center">
-                <p>
-                  Adod Morningd fgasdfgsdfgsfdgsdfgs gfgsdfgsdfg gsdfgsdfd
-                </p>
-                <p>
-                  Hogehogehoge hogehogehogehogehogehoge geadgasdgfad
-                </p>
-                <p>
-                  gegasdgadga dgadsgasdgasd gadsgasdgasdgasd gasdgasdg
-                </p>
+                <h4>
+                  同志社公認プログラミングサークル
+                </h4>
               </v-row>
             </v-card>
           </v-col>
