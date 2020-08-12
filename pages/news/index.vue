@@ -2,7 +2,7 @@
   <v-container>
     <v-card flat>
       <v-row justify="center">
-        <v-col cols="12," md="8">
+        <v-col cols="12," md="6">
           <v-timeline dense align-top>
             <v-timeline-item
               v-for="(page, index) in pages"
