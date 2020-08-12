@@ -15,6 +15,7 @@
         cols="6"
         sm="3"
         md="4"
+        xl="3"
       >
         <v-lazy
           v-model="lazyDescript[index]"
@@ -32,7 +33,7 @@
         </v-lazy>
       </v-col>
 
-      <v-col cols="12" sm="7" md="6" class="my-6">
+      <v-col cols="12" sm="7" md="6" xl="4" class="my-6">
         <v-card flat>
           <v-card-title class="headline">
             {{ item.title }}

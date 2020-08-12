@@ -3,7 +3,7 @@
     <div class="mt-9">
       <v-card id="main-top" flat color="#00cba9">
         <v-row wrap justify="center" align="center">
-          <v-col cols="10" sm="10" md="6" xl="4" class="mb-5">
+          <v-col cols="10" sm="10" md="6" class="mb-5">
             <v-card transition="fade-transition" flat color="#00cba9">
               <v-img
                 class="text-center"
@@ -12,7 +12,7 @@
               ></v-img>
             </v-card>
           </v-col>
-          <v-col cols="12" sm="10" md="4" xl="3">
+          <v-col cols="12" sm="10" md="4">
             <v-card outlined color="transparent" class="white--text">
               <h1 class="mb-6 text-center">Hello DENX!</h1>
               <v-row justify="center">
