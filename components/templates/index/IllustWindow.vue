@@ -3,7 +3,7 @@
     <div class="mt-9">
       <v-card id="main-top" flat color="#00cba9">
         <v-row wrap justify="center" align="center">
-          <v-col cols="10" sm="10" md="6" class="mb-5">
+          <v-col cols="10" sm="10" md="6" xl="4" class="mb-5">
             <v-card transition="fade-transition" flat color="#00cba9">
               <v-img
                 class="text-center"
