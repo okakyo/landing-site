@@ -5,15 +5,13 @@
     app
     class="grey lighten-4"
   >
-    <v-list>
+    <v-list flat>
       <v-list-item>
         <v-list-item-icon>
           <v-icon>mdi-home</v-icon>
         </v-list-item-icon>
-
         <v-list-item-title>Home</v-list-item-title>
       </v-list-item>
-
       <v-list-group prepend-icon="mdi-account-circle" value="true">
         <template v-slot:activator>
           <v-list-item-title>Users</v-list-item-title>
@@ -53,8 +51,15 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api'
+
 export default defineComponent({
   name: 'DocNavList',
+  props: {
+    navLists: {
+      type: Array,
+      required: false,
+    },
+  },
   setup() {
     const admins = ref([
       ['Management', 'mdi-people-outline'],

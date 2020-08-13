@@ -4,7 +4,7 @@
     <v-row>
       <v-col cols="12" md="6" lg="4">
         <v-card>
-          fdag:
+          {{ docList }}
         </v-card>
       </v-col>
     </v-row>
@@ -12,15 +12,16 @@
 </template>
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
-import DocNavList from '@/components/organisms/lists/nav/DocNavList.vue'
+import DocNavList from '@/components/molecules/lists/nav/DocNavList.vue'
 export default defineComponent({
   name: 'question',
   layout: 'doc',
   components: {
     DocNavList,
   },
-  asyncData({ $content }) {
-    const docList = ''
+  async asyncData({ $content }) {
+    const docList = await $content('specify').fetch()
+    console.log(docList)
     return { docList }
   },
 })
