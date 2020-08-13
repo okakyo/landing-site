@@ -27,7 +27,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
-import { dateParser } from '@/functions'
+import { dateParser } from '@/libs'
 export default defineComponent({
   name: 'NewsIndex',
   async asyncData({ $content }) {

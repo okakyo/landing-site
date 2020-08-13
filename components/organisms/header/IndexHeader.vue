@@ -1,5 +1,10 @@
 <template>
-  <v-app-bar app flat color="#00cba9">
+  <v-app-bar
+    app
+    flat
+    color="#00cba9"
+    :clipped-left="$vuetify.breakpoint.lgAndUp"
+  >
     <v-btn text exact depressed dark nuxt to="/" color="text--white">
       <h3>DENX</h3>
     </v-btn>
@@ -39,15 +44,10 @@ export default defineComponent({
         url: '/about',
         icon: '',
       },
-      {
-        name: 'news',
-        url: '/news',
-        icon: '',
-      },
 
       {
-        name: 'contact',
-        url: '/contact',
+        name: '仕様書',
+        url: '/docs',
         icon: '',
       },
     ])

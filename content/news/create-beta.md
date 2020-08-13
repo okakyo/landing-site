@@ -2,4 +2,8 @@
 title: ベータ版が完成
 ---
 
-2020/7/27 に、認証の実装が完了しました。今後、アカウントの個人情報を整理できるように実装する予定
+Lift($L$) can be determined by Lift Coefficient ($C_L$) like the following equation.
+
+$$
+L = \frac{1}{2} \rho v^2 S C_L
+$$

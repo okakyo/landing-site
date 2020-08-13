@@ -22,6 +22,7 @@
     }
   },
   "dependencies": {
+    "@agentofuser/remark-oembed": "^1.0.4",
     "@akebifiky/remark-simple-plantuml": "^1.0.1",
     "@nuxt/content": "^1.5.0",
     "@nuxt/typescript-runtime": "^1.0.0",
@@ -31,7 +32,9 @@
     "@vercel/node": "^1.7.4",
     "@vue/composition-api": "^1.0.0-beta.6",
     "nuxt": "^2.14.0",
+    "rehype-katex": "^3.1.0",
     "remark-emoji": "^2.1.0",
+    "remark-math": "^2.0.1",
     "remark-typescript": "^0.3.1"
   },
   "devDependencies": {

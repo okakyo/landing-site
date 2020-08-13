@@ -1,7 +1,7 @@
 <template>
   <v-app app>
     <index-header />
-    <v-main id="contents">
+    <v-main id="contents" class="grey lighten-4">
       <v-slide-y-reverse-transition>
         <nuxt />
       </v-slide-y-reverse-transition>
