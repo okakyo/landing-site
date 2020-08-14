@@ -1,6 +1,8 @@
 <template>
   <div>
     <doc-nav-list :nav-lists="docLists" />
+    <h3>仕様書のまとめ</h3>
+    <v-divider />
     <v-row>
       <v-col v-for="(card, i) in docLists" :key="i" cols="12" md="4" lg="3">
         <v-card :to="'/docs/' + card.slug">
