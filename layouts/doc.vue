@@ -10,18 +10,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 import IndexHeader from '@/components/organisms/header/IndexHeader.vue'
 export default defineComponent({
   name: 'Land',
   components: {
     IndexHeader,
-  },
-  setup() {
-    const drawer = ref()
-    return {
-      drawer,
-    }
   },
 })
 </script>
