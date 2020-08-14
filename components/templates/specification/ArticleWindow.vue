@@ -4,13 +4,23 @@
     <v-row>
       <v-col cols="12" sm="10" md="9" xl="8">
         <v-card outlined min-height="600" class="pa-3">
-          <v-card-title class="headline">
-            {{ page.title }}
-          </v-card-title>
-          <v-card-subtitle>
-            {{ page.createdAt | dateParser }}
-          </v-card-subtitle>
-          <v-divider></v-divider>
+          <v-toolbar flat>
+            <v-card-title class="headline">
+              {{ page.title }}
+            </v-card-title>
+            <v-spacer />
+            <v-card-subtitle>
+              <a
+                :href="
+                  'https://github.com/okakyo/landing-site/edit/master/content/' +
+                  page.path +
+                  page.extension
+                "
+                >記事を編集する</a
+              >
+            </v-card-subtitle>
+          </v-toolbar>
+          <v-divider />
           <nuxt-content class="ma-3 pa-3" :document="page" />
         </v-card>
       </v-col>

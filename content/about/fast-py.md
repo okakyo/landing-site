@@ -1,9 +1,12 @@
 ---
-title: "fast-py(仮)"
+title: "FastAPI を利用したサーバー"
 thumbnail: ""
+
 ---
 
-## どういったものか
+## どういったもの
+- FastAPI を利用してpython のサーバーを立てます:smile: 
+
 ## 使用するフレームワーク
 ## 仕様について
 ## TODOs

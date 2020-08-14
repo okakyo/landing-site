@@ -4,6 +4,8 @@
     <v-card outlined>
       <v-card-title>仕様書のまとめ</v-card-title>
       <v-divider />
+      <v-spacer />
+
       <v-container>
         <v-row>
           <v-col v-for="(card, i) in docLists" :key="i" cols="12" md="4" xl="3">
