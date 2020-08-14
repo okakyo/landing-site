@@ -23,6 +23,9 @@
           "Service-Worker-Allowed": "/"
         }
       },
-      { "src": "/(.*)", "dest": "/" }
+      {
+        "src":"api/**/*.js",
+        "dest":"/api/**/*.js"
+      } 
     ]
   }
