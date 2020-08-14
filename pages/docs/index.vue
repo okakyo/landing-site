@@ -2,9 +2,17 @@
   <div>
     <doc-nav-list />
     <v-row>
-      <v-col cols="12" md="6" lg="4">
-        <v-card>
-          {{ docList }}
+      <v-col v-for="(card, i) in docLists" :key="i" cols="12" md="6" lg="4">
+        <v-card :to="'/docs/' + card.slug">
+          <v-img
+            :src="
+              card.thumbnail === '' ? '/images/404-min.png' : card.thumbnail
+            "
+          />
+          <v-card-title>{{ card.title }}</v-card-title>
+          <v-card-text>
+            {{ card }}
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -20,9 +28,11 @@ export default defineComponent({
     DocNavList,
   },
   async asyncData({ $content }) {
-    const docList = await $content('specify').fetch()
-    console.log(docList)
-    return { docList }
+    const docLists = await $content('about')
+      .only(['toc', 'title', 'path', 'thumbnail', 'slug'])
+      .limit(5)
+      .fetch()
+    return { docLists }
   },
 })
 </script>

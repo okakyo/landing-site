@@ -3,9 +3,7 @@
     <index-header />
     <v-container fluid class="fill-height">
       <v-main id="contents" class="fill-height">
-        <v-slide-y-reverse-transition>
-          <nuxt />
-        </v-slide-y-reverse-transition>
+        <nuxt />
       </v-main>
     </v-container>
   </v-app>
