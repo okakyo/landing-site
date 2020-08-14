@@ -85,7 +85,7 @@ export default defineComponent({
   line-height: 2em;
   margin-block-end: 0.5em;
 }
-..nuxt-content code {
+.nuxt-content code {
   box-shadow: none;
 }
 .nuxt-content pre {

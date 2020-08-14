@@ -8,7 +8,7 @@
 
       <v-container>
         <v-row>
-          <v-col v-for="(card, i) in docLists" :key="i" cols="12" md="4" xl="3">
+          <v-col v-for="(card, i) in docLists" :key="i" cols="6" md="4" xl="3">
             <v-card :to="'/docs/' + card.slug">
               <v-img
                 :src="
