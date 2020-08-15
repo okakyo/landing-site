@@ -5,7 +5,16 @@
       <v-toolbar flat>
         <v-card-title>仕様書のまとめ</v-card-title>
         <v-spacer />
-        <v-text-field> </v-text-field>
+
+        <v-autocomplete
+          dense
+          chips
+          clearable
+          hide-details
+          hide-selected
+          prepend-icon="mdi-magnify"
+          label="ドキュメントを検索する"
+        />
       </v-toolbar>
       <v-divider />
       <v-container>

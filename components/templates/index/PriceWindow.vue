@@ -7,8 +7,8 @@
       }"
       transition="fade-transition"
     >
-      <v-row>
-        <v-col v-for="i in 3" :key="i" cols="12" md="4">
+      <v-row justify="center">
+        <v-col v-for="i in 3" :key="i" cols="8" md="4" xl="3">
           <v-card min-height="400px">
             <v-card-title></v-card-title>
           </v-card>

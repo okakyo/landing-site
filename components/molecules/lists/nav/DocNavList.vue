@@ -53,7 +53,12 @@ export default defineComponent({
   setup() {
     const sidebarLists = ref([
       { name: 'プロジェクト', icon: 'mdi-folder', subIcon: '', slug: '/docs' },
-      { name: 'サンプル', icon: 'mdi-folder', subIcon: '', slug: '/docs' },
+      {
+        name: 'サンプル',
+        icon: 'mdi-folder',
+        subIcon: '',
+        slug: '/docs/example',
+      },
       {
         name: 'エニグマ',
         icon: 'mdi-account-group',
