@@ -1,6 +1,7 @@
 <template>
   <div>
     <doc-nav-list :nav-lists="docLists" />
+
     <v-row>
       <v-col cols="12" sm="10" md="9" xl="8">
         <v-card outlined min-height="600" class="pa-3">
@@ -77,6 +78,7 @@ export default defineComponent({
 .nuxt-content p {
   padding: 0.75em;
   line-height: 1.8em;
+  white-space: pre-wrap;
 }
 .nuxt-content ul {
   margin-bottom: 1.5em;

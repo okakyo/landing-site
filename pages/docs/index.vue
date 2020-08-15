@@ -2,10 +2,12 @@
   <div>
     <doc-nav-list :nav-lists="docLists" />
     <v-card outlined>
-      <v-card-title>仕様書のまとめ</v-card-title>
+      <v-toolbar flat>
+        <v-card-title>仕様書のまとめ</v-card-title>
+        <v-spacer />
+        <v-text-field> </v-text-field>
+      </v-toolbar>
       <v-divider />
-      <v-spacer />
-
       <v-container>
         <v-row>
           <v-col v-for="(card, i) in docLists" :key="i" cols="6" md="4" xl="3">

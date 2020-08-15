@@ -13,7 +13,6 @@ export default defineComponent({
       .only(['title', 'thumbnail', 'slug'])
       .limit(5)
       .fetch()
-    console.log(docLists)
     return {
       page,
       docLists,
