@@ -14,7 +14,8 @@
   },
   "lint-staged": {
     "*.{ts,js,vue}": "eslint --fix",
-    "*.{css,vue}": "stylelint --fix"
+    "*.{css,vue}": "stylelint --fix",
+    "*.{md,txt}": "textlint --fix"
   },
   "husky": {
     "hooks": {
@@ -60,6 +61,10 @@
     "stylelint": "^13.6.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
+    "textlint": "^11.7.6",
+    "textlint-rule-preset-ja-spacing": "^2.0.1",
+    "textlint-rule-preset-ja-technical-writing": "^4.0.1",
+    "textlint-rule-spellcheck-tech-word": "^5.0.0",
     "ts-jest": "^26.1.3",
     "vue-jest": "^3.0.4"
   }
