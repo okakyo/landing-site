@@ -92,6 +92,7 @@ export default defineComponent({
 }
 .nuxt-content pre {
   margin: 0.5rem 0;
+  box-shadow: none;
 }
 .nuxt-content code::before {
   content: '';
@@ -112,5 +113,10 @@ export default defineComponent({
   color: #494949; /* 文字色 */
   background: transparent; /* 背景透明に */
   border-left: solid 5px #7db4e6; /* 左線 */
+}
+.v-application code {
+  background-color: initial;
+  padding: initial;
+  font-size: initial;
 }
 </style>
