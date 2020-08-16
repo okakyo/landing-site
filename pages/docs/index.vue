@@ -7,26 +7,37 @@
         <v-spacer />
 
         <v-autocomplete
+          v-model="query"
           dense
           chips
           clearable
+          hide-no-data
           hide-details
           hide-selected
           prepend-icon="mdi-magnify"
-          label="ドキュメントを検索する"
+          :search-input.sync="searchDocuments"
+          :items="articles"
+          label="ドキュメントを検索"
         />
       </v-toolbar>
       <v-divider />
       <v-container>
         <v-row>
-          <v-col v-for="(card, i) in docLists" :key="i" cols="6" md="4" xl="3">
+          <v-col
+            v-for="(card, i) in docLists"
+            :key="i"
+            cols="6"
+            md="4"
+            lg="3"
+            xl="2"
+          >
             <v-card :to="'/docs/' + card.slug">
               <v-img
                 :src="
                   card.thumbnail === '' ? '/images/404-min.png' : card.thumbnail
                 "
               />
-              <v-card-title>{{ card.title }}</v-card-title>
+              <v-card-subtitle>{{ card.title }}</v-card-subtitle>
             </v-card>
           </v-col>
         </v-row>
@@ -35,10 +46,10 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import Vue from 'vue'
 import DocNavList from '@/components/molecules/lists/nav/DocNavList.vue'
-export default defineComponent({
-  name: 'question',
+export default Vue.extend({
+  name: 'Question',
   layout: 'doc',
   components: {
     DocNavList,
@@ -49,6 +60,29 @@ export default defineComponent({
       .limit(5)
       .fetch()
     return { docLists }
+  },
+  data() {
+    return {
+      query: '',
+      searchDocuments: null,
+      articles: [],
+    }
+  },
+  watch: {
+    async searcDocuments(query) {
+      console.log(query)
+      if (!query) {
+        this.articles = []
+        return
+      }
+
+      this.articles = await this.$content('about')
+        .only(['title', 'slug'])
+        .sortBy('createdAt', 'asc')
+        .limit(6)
+        .search(query)
+        .fetch()
+    },
   },
 })
 </script>

@@ -21,7 +21,7 @@
       color="text--white"
       >{{ btn.name }}</v-btn
     >
-    <v-btn text depressed dark nuxt to="/user/login" color="text--white">
+    <v-btn text depressed dark nuxt to="/login" color="text--white">
       <h3>ログイン</h3>
     </v-btn>
   </v-app-bar>
