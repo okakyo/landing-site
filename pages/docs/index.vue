@@ -70,7 +70,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      drawer: true,
+      drawer: false,
       query: '',
       searchDocuments: null,
       articles: [],
