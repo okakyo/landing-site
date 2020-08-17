@@ -1,8 +1,9 @@
 <template>
   <div>
-    <doc-nav-list :nav-lists="docLists" />
+    <doc-nav-list :nav-lists="docLists" :drawer="drawer" />
     <v-card outlined>
       <v-toolbar flat>
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
         <v-card-title>仕様書のまとめ</v-card-title>
         <v-spacer />
 
@@ -41,6 +42,11 @@
             </v-card>
           </v-col>
         </v-row>
+        <v-row>
+          <v-col>
+            {{ lists }}
+          </v-col>
+        </v-row>
       </v-container>
     </v-card>
   </div>
@@ -55,14 +61,16 @@ export default Vue.extend({
     DocNavList,
   },
   async asyncData({ $content }) {
-    const docLists = await $content('about')
+    const docLists = await $content('documents/about')
       .only(['title', 'thumbnail', 'slug'])
       .limit(5)
       .fetch()
-    return { docLists }
+    const lists = await $content('documents').fetch()
+    return { docLists, lists }
   },
   data() {
     return {
+      drawer: true,
       query: '',
       searchDocuments: null,
       articles: [],
@@ -82,6 +90,11 @@ export default Vue.extend({
         .limit(6)
         .search(query)
         .fetch()
+    },
+  },
+  methods: {
+    clickDrawer() {
+      return (this.drawer = !this.drawer)
     },
   },
 })

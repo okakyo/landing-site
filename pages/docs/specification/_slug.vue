@@ -9,7 +9,7 @@ export default defineComponent({
   layout: 'doc',
   async asyncData({ $content, params }) {
     const page = await $content('specification', params.slug).fetch()
-    const docLists = await $content('about')
+    const docLists = await $content('documents/about')
       .only(['title', 'thumbnail', 'slug'])
       .limit(5)
       .fetch()

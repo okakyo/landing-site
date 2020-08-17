@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <v-col v-for="i in 3" :key="i" cols="8" md="4" xl="3">
+      <v-col v-for="index in 3" :key="index" cols="8" md="4" xl="3">
         <v-lazy
           v-model="lazyDescript[index]"
           :options="{

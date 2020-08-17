@@ -11,8 +11,8 @@ export default defineComponent({
     ArticleWindow,
   },
   async asyncData({ $content, params }) {
-    const page = await $content('enigma', params.slug).fetch()
-    const docLists = await $content('about')
+    const page = await $content('documents/enigma', params.slug).fetch()
+    const docLists = await $content('documents/about')
       .only(['title', 'thumbnail', 'slug'])
       .limit(5)
       .fetch()

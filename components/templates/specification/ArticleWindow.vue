@@ -1,11 +1,11 @@
 <template>
   <div>
-    <doc-nav-list :nav-lists="docLists" />
-
+    <doc-nav-list :nav-lists="docLists" :drawer="drawer" />
     <v-row>
       <v-col cols="12" sm="10" md="9" xl="8">
         <v-card outlined min-height="600" class="pa-3">
           <v-toolbar flat>
+            <v-app-bar-nav-icon @click="drawer = !drawer" />
             <v-card-title class="headline">
               {{ page.title }}
             </v-card-title>
@@ -44,14 +44,14 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, ref } from '@vue/composition-api'
 import { dateParser } from '@/libs'
 import DocNavList from '~/components/molecules/lists/nav/DocNavList.vue'
 export default defineComponent({
   name: 'Article',
   props: {
     page: {
-      type: Array,
+      type: Object,
       required: true,
     },
     docLists: {
@@ -59,7 +59,12 @@ export default defineComponent({
       required: true,
     },
   },
-
+  setup() {
+    const drawer = ref(true)
+    return {
+      drawer,
+    }
+  },
   components: {
     DocNavList,
   },

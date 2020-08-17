@@ -1,9 +1,10 @@
 <template>
   <v-navigation-drawer
-    v-model="drawer"
+    :value="drawer"
     :clipped="$vuetify.breakpoint.lgAndUp"
     app
     class="grey lighten-4"
+    @input="$emit('input', $event)"
   >
     <v-list flat>
       <v-list-item nuxt link color="primary" to="/docs">
@@ -41,24 +42,24 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api'
-
+type Props = {
+  drawer: boolean
+}
 export default defineComponent({
   name: 'DocNavList',
   props: {
+    drawer: {
+      type: Boolean,
+      required: true,
+    },
     navLists: {
       type: Array,
       required: false,
     },
   },
-  setup() {
+  setup(props: Props) {
     const sidebarLists = ref([
       { name: 'プロジェクト', icon: 'mdi-folder', subIcon: '', slug: '/docs' },
-      {
-        name: 'サンプル',
-        icon: 'mdi-folder',
-        subIcon: '',
-        slug: '/docs/example',
-      },
       {
         name: 'エニグマ',
         icon: 'mdi-account-group',
