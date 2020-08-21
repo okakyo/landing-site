@@ -1,3 +1,3 @@
-module.exports = (req: any, res: any) => {
-  return res.json('Hello World')
+export default (req: any, res: any) => {
+  res.json({ message: 'hello' })
 }

@@ -88,7 +88,7 @@ export default {
       ],
     },
   },
-  serverMiddleware: ['@/api'],
+
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
