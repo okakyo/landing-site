@@ -5,7 +5,11 @@
         "src": "nuxt.config.js",
         "use": "@nuxtjs/now-builder",
         "config": {
-          "serverFiles": ["package.json", "content/**/*.md"]
+          "generateStaticRoutes":true,
+          "tscOptions": {
+            "sourceMap": false
+          },
+          "serverFiles": ["package.json", "content/**/*.md","api/**"]
         }
       },
       {

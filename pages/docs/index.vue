@@ -42,11 +42,6 @@
             </v-card>
           </v-col>
         </v-row>
-        <v-row>
-          <v-col>
-            {{ lists }}
-          </v-col>
-        </v-row>
       </v-container>
     </v-card>
   </div>
