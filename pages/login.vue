@@ -8,7 +8,11 @@
         <v-divider />
         <v-row justify="center">
           <v-col cols="10">
-            <login-form />
+            <v-btn
+              flat
+              href="https://github.com/login/oauth/authorize?client_id=ae4906dca84e3aa4a21d&scope=repo"
+              >GitHub にログイン</v-btn
+            >
           </v-col>
         </v-row>
       </v-card>
@@ -28,5 +32,6 @@ export default defineComponent({
   components: {
     LoginForm,
   },
+  async setup() {},
 })
 </script>
