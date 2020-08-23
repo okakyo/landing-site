@@ -28,7 +28,7 @@
       "@nuxt/types",
       "@nuxtjs/axios",
       "@nuxt/content",
-      "cookie-universal-nuxt",
+      "cookie-universal-nuxt"
 
 
     ]
