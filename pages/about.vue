@@ -10,11 +10,5 @@ export default defineComponent({
   components: {
     ArticleWindow,
   },
-  async asyncData({ $content }) {
-    const articleLists = await $content('about').fetch()
-    return {
-      articleLists,
-    }
-  },
 })
 </script>

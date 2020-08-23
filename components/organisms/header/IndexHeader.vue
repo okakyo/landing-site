@@ -29,9 +29,8 @@
       text
       depressed
       dark
-      nuxt
-      href="https://github.com/login/oauth/authorize?client_id=ae4906dca84e3aa4a21d&scope=repo"
       color="text--white"
+      @click="logout"
     >
       <h3>ログアウト</h3>
     </v-btn>
@@ -73,11 +72,17 @@ export default defineComponent({
         icon: '',
       },
     ])
-    const authToken = root.$cookies.get('access_token')
-    const isLogin = ref(authToken && authToken !== '')
+    const authToken = ref(root.$cookies.get('access_token'))
+    const isLogin = ref(authToken.value && authToken.value !== '')
+    const logout = () => {
+      root.$cookies.remove('access_token')
+      root.$nextTick(() => (isLogin.value = false))
+      root.$router.push('/logout')
+    }
     return {
       smallBtn,
       isLogin,
+      logout,
     }
   },
 })

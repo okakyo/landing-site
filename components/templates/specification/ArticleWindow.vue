@@ -1,11 +1,14 @@
 <template>
   <div>
-    <doc-nav-list :nav-lists="docLists" :drawer="drawer" />
+    <doc-nav-list v-if="isSidebar" :nav-lists="docLists" :drawer="drawer" />
     <v-row>
       <v-col cols="12" sm="10" md="9" xl="8">
         <v-card outlined min-height="600" class="pa-3">
           <v-toolbar flat>
-            <v-app-bar-nav-icon @click="drawer = !drawer" />
+            <v-app-bar-nav-icon
+              v-if="$vuetify.breakpoint.mdAndDown"
+              @click="drawer = !drawer"
+            />
             <v-card-title class="headline">
               {{ page.title }}
             </v-card-title>
@@ -50,6 +53,10 @@ import DocNavList from '~/components/molecules/lists/nav/DocNavList.vue'
 export default defineComponent({
   name: 'Article',
   props: {
+    isSidebar: {
+      type: Boolean,
+      default: true,
+    },
     page: {
       type: Object,
       required: true,
@@ -60,7 +67,7 @@ export default defineComponent({
     },
   },
   setup() {
-    const drawer = ref(false)
+    const drawer = ref(true)
     return {
       drawer,
     }

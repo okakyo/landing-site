@@ -1,8 +1,9 @@
 <template>
   <v-navigation-drawer
     :value="drawer"
-    :clipped="$vuetify.breakpoint.lgAndUp"
+    clipped
     app
+    :permanent="$vuetify.breakpoint.lgAndUp"
     class="grey lighten-4"
     @input="$emit('input', $event)"
   >

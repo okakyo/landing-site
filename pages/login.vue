@@ -21,7 +21,6 @@ export default Vue.extend({
         }
       )
       if (res.status === 200) {
-        console.log(res.data)
         app.$cookies.set('access_token', res.data.access_token)
         redirect('/')
       }

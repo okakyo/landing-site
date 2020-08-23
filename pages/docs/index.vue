@@ -3,7 +3,10 @@
     <doc-nav-list :nav-lists="docLists" :drawer="drawer" />
     <v-card outlined>
       <v-toolbar flat>
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+        <v-app-bar-nav-icon
+          v-if="$vuetify.breakpoint.mdAndDown"
+          @click.stop="drawer = !drawer"
+        />
         <v-card-title>仕様書のまとめ</v-card-title>
         <v-spacer />
 
