@@ -19,7 +19,10 @@ export default Vue.extend({
         'https://github.com/login/oauth/access_token',
         sendData,
         {
-          headers: { ACCEPT: 'application/json', withCredentials: true },
+          headers: {
+            ACCEPT: 'application/json',
+            'Access-Control-Allow-Headers': 'X-Requested-With, content-type',
+          },
         }
       )
       if (res.status === 200) {
