@@ -21,8 +21,8 @@ export default Vue.extend({
         {
           headers: {
             ACCEPT: 'application/json',
-            'Access-Control-Allow-Headers': 'X-Requested-With, content-type',
-            "'Access-Control-Allow-Origin": '*',
+            'Access-Control-Allow-Headers': 'X-Requested-With',
+            'Access-Control-Allow-Origin': '*',
             withCredentials: true,
           },
         }
