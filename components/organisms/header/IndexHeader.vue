@@ -9,26 +9,48 @@
       <h3>DENX</h3>
     </v-btn>
     <v-spacer />
+    <div v-if="isLogin">
+      <v-btn
+        v-for="(btn, index) in smallBtn"
+        :key="index"
+        text
+        small
+        depressed
+        dark
+        nuxt
+        :to="btn.url"
+        color="text--white"
+        >{{ btn.name }}
+      </v-btn>
+    </div>
+
     <v-btn
-      v-for="(btn, index) in smallBtn"
-      :key="index"
+      v-if="isLogin"
       text
-      small
       depressed
       dark
       nuxt
-      :to="btn.url"
+      href="https://github.com/login/oauth/authorize?client_id=ae4906dca84e3aa4a21d&scope=repo"
       color="text--white"
-      >{{ btn.name }}</v-btn
     >
-    <v-btn text depressed dark nuxt to="/login" color="text--white">
+      <h3>ログアウト</h3>
+    </v-btn>
+    <v-btn
+      v-else
+      text
+      depressed
+      dark
+      nuxt
+      href="https://github.com/login/oauth/authorize?client_id=ae4906dca84e3aa4a21d&scope=repo"
+      color="text--white"
+    >
       <h3>ログイン</h3>
     </v-btn>
   </v-app-bar>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import { defineComponent, ref, SetupContext } from '@vue/composition-api'
 
 type SmallBtn = {
   name: string
@@ -37,7 +59,7 @@ type SmallBtn = {
 }
 export default defineComponent({
   name: 'IndexHeader',
-  setup() {
+  setup(props: any, { root }: SetupContext) {
     const smallBtn = ref<SmallBtn[]>([
       {
         name: 'about',
@@ -51,8 +73,11 @@ export default defineComponent({
         icon: '',
       },
     ])
+    const authToken = root.$cookies.get('access_token')
+    const isLogin = ref(authToken && authToken !== '')
     return {
       smallBtn,
+      isLogin,
     }
   },
 })

@@ -6,9 +6,7 @@
           <v-card-title class="headline">
             {{ page.title }}
           </v-card-title>
-          <v-card-subtitle>
-            {{ page.createdAt | dateParser }}
-          </v-card-subtitle>
+          >
           <v-divider></v-divider>
           <v-card-text class="ma-3">
             <nuxt-content :document="page" />

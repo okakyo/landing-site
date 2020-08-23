@@ -81,7 +81,6 @@ export default Vue.extend({
 
       this.articles = await this.$content('about')
         .only(['title', 'slug'])
-        .sortBy('createdAt', 'asc')
         .limit(6)
         .search(query)
         .fetch()

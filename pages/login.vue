@@ -1,37 +1,34 @@
 <template>
-  <v-row justify="center">
-    <v-col cols="10" sm="8" md="6" xl="4" class="mt-3">
-      <v-card card-title="ログイン" class="pa-3">
-        <v-row justify="center">
-          <v-card-title>Login Form</v-card-title>
-        </v-row>
-        <v-divider />
-        <v-row justify="center">
-          <v-col cols="10">
-            <v-btn
-              flat
-              href="https://github.com/login/oauth/authorize?client_id=ae4906dca84e3aa4a21d&scope=repo"
-              >GitHub にログイン</v-btn
-            >
-          </v-col>
-        </v-row>
-      </v-card>
-    </v-col>
-  </v-row>
+  <v-container fluid>Waiting in login</v-container>
 </template>
-
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
-import LoginForm from '@/components/molecules/forms/LoginForm.vue'
-
-// TODO: SNS認証は今後実装することにする（まずはメール認証だけで大まかな部分を実装することを考える）;
-
-// import AuthContent from '@/components/organisms/lists/auth/AuthContent.vue'
-export default defineComponent({
-  layout: 'land',
-  components: {
-    LoginForm,
+import Vue from 'vue'
+export default Vue.extend({
+  name: 'Login',
+  async fetch({ $axios, route, redirect, app }) {
+    const code = route.query.code
+    const sendData = {
+      client_id: process.env.GITHUB_CLIENT_ID,
+      client_secret: process.env.GITHUB_CLIENT_SECRET,
+      code,
+    }
+    try {
+      const res = await $axios.post(
+        'https://github.com/login/oauth/access_token',
+        sendData,
+        {
+          headers: { ACCEPT: 'application/json' },
+        }
+      )
+      if (res.status === 200) {
+        console.log(res.data)
+        app.$cookies.set('access_token', res.data.access_token)
+        redirect('/')
+      }
+    } catch (e) {
+      console.error(e)
+      throw e
+    }
   },
-  async setup() {},
 })
 </script>

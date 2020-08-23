@@ -10,9 +10,6 @@
               color="#00cba9"
             >
               <v-card class="mx-5" nuxt :to="page.path" color="#00cba9">
-                <v-card-subtitle class="white--text">{{
-                  page.createdAt | dateParser
-                }}</v-card-subtitle>
                 <v-card-title class="headline white text--primary">{{
                   page.title
                 }}</v-card-title>
@@ -31,9 +28,7 @@ import { dateParser } from '@/libs'
 export default defineComponent({
   name: 'NewsIndex',
   async asyncData({ $content }) {
-    const pages = await $content('news')
-      .only(['title', 'slug', 'createdAt', 'path'])
-      .fetch()
+    const pages = await $content('news').only(['title', 'slug', 'path']).fetch()
     return {
       pages,
     }

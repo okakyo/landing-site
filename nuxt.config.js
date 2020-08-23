@@ -1,5 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
-
+import {} from 'cookie-universal-nuxt'
 export default {
   /*
    ** Nuxt rendering mode
@@ -67,12 +67,13 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    'cookie-universal-nuxt',
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+
   /*
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration
