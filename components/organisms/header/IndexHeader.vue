@@ -40,7 +40,11 @@
       depressed
       dark
       nuxt
-      href="https://github.com/login/oauth/authorize?client_id=ae4906dca84e3aa4a21d&scope=repo"
+      :href="
+        'https://github.com/login/oauth/authorize?client_id=' +
+        clientId +
+        '&scope=repo'
+      "
       color="text--white"
     >
       <h3>ログイン</h3>
@@ -50,7 +54,6 @@
 
 <script lang="ts">
 import { defineComponent, ref, SetupContext } from '@vue/composition-api'
-
 type SmallBtn = {
   name: string
   icon: string
@@ -72,6 +75,8 @@ export default defineComponent({
         icon: '',
       },
     ])
+
+    const clientId = ref(process.env.GITHUB_CLIENT_ID)
     const authToken = ref(root.$cookies.get('access_token'))
     const isLogin = ref(authToken.value && authToken.value !== '')
     const logout = () => {
@@ -83,6 +88,7 @@ export default defineComponent({
       smallBtn,
       isLogin,
       logout,
+      clientId,
     }
   },
 })

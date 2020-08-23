@@ -68,6 +68,7 @@ export default {
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
     'cookie-universal-nuxt',
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Axios module configuration

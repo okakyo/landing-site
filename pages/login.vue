@@ -7,19 +7,19 @@ export default Vue.extend({
   name: 'Login',
   async fetch({ $axios, route, redirect, app }) {
     const code = route.query.code
-    console.log(code)
+    const clientId = process.env.GITHUB_CLIENT_ID
+    const clientSecret = process.env.GITHUB_CLIENT_SECRET
     const sendData = {
-      client_id: process.env.GITHUB_CLIENT_ID,
-      client_secret: process.env.GITHUB_CLIENT_SECRET,
+      client_id: clientId,
+      client_secret: clientSecret,
       code,
     }
-    console.log(sendData)
     try {
       const res = await $axios.post(
         'https://github.com/login/oauth/access_token',
         sendData,
         {
-          headers: { ACCEPT: 'application/json' },
+          headers: { ACCEPT: 'application/json', withCredentials: true },
         }
       )
       if (res.status === 200) {
