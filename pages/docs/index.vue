@@ -18,8 +18,9 @@
           hide-no-data
           hide-details
           hide-selected
+          persistent-hint
           prepend-icon="mdi-magnify"
-          :search-input.sync="searchDocuments"
+          :search-input.sync="search"
           :items="articles"
           label="ドキュメントを検索"
         />
@@ -70,20 +71,19 @@ export default Vue.extend({
     return {
       drawer: false,
       query: '',
-      searchDocuments: null,
+      search: null,
       articles: [],
     }
   },
   watch: {
-    async searcDocuments(query) {
-      console.log(query)
+    async search(query) {
       if (!query) {
         this.articles = []
         return
       }
 
-      this.articles = await this.$content('about')
-        .only(['title', 'slug'])
+      this.articles = await this.$content('documents/about')
+        .only(['title'])
         .limit(6)
         .search(query)
         .fetch()
