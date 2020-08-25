@@ -5,7 +5,7 @@ title: Introduction
 
 # 無料枠でできること
 
-## Hello World!
+## Hello World
 
 I :heart: remark-emoji
 

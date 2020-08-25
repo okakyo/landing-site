@@ -5,9 +5,10 @@ title: "Fast APIでの技術的仕様のまとめ"
 ## データの型定義
 
 ## フロントエンドについて
-## バックエンドについて
-### 認証周りについてのフローについて
 
+## バックエンドについて
+
+### 認証周りについてのフローについて
 
 ```plantuml example2
 @startuml
@@ -25,6 +26,7 @@ Foo1 -> Foo6 : To collections
 
 @enduml
 ```
+
 fasdfg
 gasdgasdgsdfgs
 gsdfgsdfgsdfg
@@ -36,4 +38,3 @@ actor Use
 database MySQL
 @enduml
 ```
-

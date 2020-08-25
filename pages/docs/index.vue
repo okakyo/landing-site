@@ -62,7 +62,6 @@ export default Vue.extend({
   async asyncData({ $content }) {
     const docLists = await $content('documents/about')
       .only(['title', 'thumbnail', 'slug'])
-      .limit(5)
       .fetch()
     const lists = await $content('documents').fetch()
     return { docLists, lists }
@@ -82,7 +81,7 @@ export default Vue.extend({
         return
       }
 
-      this.articles = await this.$content('documents/about')
+      this.articles = await this.$content('documents')
         .only(['title'])
         .limit(6)
         .search(query)

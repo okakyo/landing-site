@@ -3,14 +3,14 @@ title: Introduction
 ---
 
 
-<iframe 
-  src="https://www.youtube.com/embed/GN0xHSk2P8Q?feature=oembed" 
-  frameborder="0" 
-  allow="accelerometer; 
-    autoplay; 
-    encrypted-media; 
-    gyroscope; 
-    picture-in-picture" 
+<iframe
+  src="https://www.youtube.com/embed/GN0xHSk2P8Q?feature=oembed"
+  frameborder="0"
+  allow="accelerometer;
+    autoplay;
+    encrypted-media;
+    gyroscope;
+    picture-in-picture"
   allowfullscreen>
 </iframe>
 
