@@ -24,15 +24,17 @@ export default Vue.extend({
           headers: {
             ACCEPT: 'application/json',
           },
-          withCredentials: true,
         }
       )
       if (res.status === 200) {
         app.$cookies.set('access_token', res.data.access_token)
         redirect('/')
+      } else {
+        console.log(res)
       }
     } catch (e) {
       console.error(e)
+      throw e
     }
   },
 })
