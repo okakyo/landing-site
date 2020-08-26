@@ -76,9 +76,8 @@ export default defineComponent({
         icon: '',
       },
     ])
-    const id = process.env.GITHUB_CLIENT_ID
-    console.log('送信された環境ID', id)
-    const clientId = ref(id)
+
+    const clientId = ref(process.env.GITHUB_CLIENT_ID)
     const authToken = ref(root.$cookies.get('access_token'))
     const isLogin = ref(authToken.value && authToken.value !== '')
     const logout = () => {

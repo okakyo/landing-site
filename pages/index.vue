@@ -21,6 +21,7 @@ export default defineComponent({
     const serviceDescriptions = await $content('index/feature')
       .only(['title'])
       .fetch()
+    console.log(process.env)
     return {
       serviceDescriptions,
     }
