@@ -27,11 +27,9 @@ export default Vue.extend({
           withCredentials: true,
         }
       )
-      if (res.status === 200 && res.data.access_token) {
+      if (res.status === 200) {
         app.$cookies.set('access_token', res.data.access_token)
         redirect('/')
-      } else {
-        alert('ログインに失敗しました')
       }
     } catch (e) {
       console.error(e)
