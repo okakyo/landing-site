@@ -17,11 +17,11 @@ export default Vue.extend({
     try {
       $axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
       const res = await $axios.post(
-        'https://github.com/login/oauth/access_token/',
+        'https://github.com/login/oauth/access_token',
+
         sendData,
         {
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
             ACCEPT: 'application/json',
           },
           withCredentials: true,
@@ -32,11 +32,9 @@ export default Vue.extend({
         redirect('/')
       } else {
         alert('ログインに失敗しました')
-        redirect('/')
       }
     } catch (e) {
       console.error(e)
-      throw e
     }
   },
 })
