@@ -14,6 +14,7 @@ export default Vue.extend({
       client_secret: clientSecret,
       code,
     }
+    console.log(sendData)
     try {
       const res = await $axios.post(
         'https://github.com/login/oauth/access_token',

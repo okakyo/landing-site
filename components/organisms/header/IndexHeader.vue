@@ -78,7 +78,6 @@ export default defineComponent({
     ])
 
     const clientId = ref(process.env.GITHUB_CLIENT_ID)
-    console.log('Status 取得', process.env)
     const authToken = ref(root.$cookies.get('access_token'))
     const isLogin = ref(authToken.value && authToken.value !== '')
     const logout = () => {
