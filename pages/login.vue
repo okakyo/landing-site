@@ -15,15 +15,15 @@ export default Vue.extend({
       code,
     }
     try {
-      $axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
       const res = await $axios.post(
         'https://github.com/login/oauth/access_token',
 
         sendData,
         {
           headers: {
-            ACCEPT: 'application/json',
-            Origin: '*',
+            Accept: 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/x-www-form-urlencoded',
           },
         }
       )
