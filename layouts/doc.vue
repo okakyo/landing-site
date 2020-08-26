@@ -14,6 +14,7 @@ import { defineComponent } from '@vue/composition-api'
 import IndexHeader from '@/components/organisms/header/IndexHeader.vue'
 export default defineComponent({
   name: 'Land',
+  middleware: ['auth'],
   components: {
     IndexHeader,
   },
