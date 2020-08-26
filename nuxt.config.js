@@ -1,5 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
+import * as dotenv from 'dotenv'
 
+dotenv.config()
 export default {
   /*
    ** Nuxt rendering mode
@@ -57,6 +59,7 @@ export default {
     '@nuxt/typescript-build',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Nuxt.js modules
@@ -70,6 +73,11 @@ export default {
     'cookie-universal-nuxt',
     '@nuxtjs/dotenv',
   ],
+
+  env: {
+    GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
+    GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
