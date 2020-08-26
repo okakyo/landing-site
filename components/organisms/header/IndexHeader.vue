@@ -54,6 +54,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, SetupContext } from '@vue/composition-api'
+
 type SmallBtn = {
   name: string
   icon: string
@@ -75,8 +76,8 @@ export default defineComponent({
         icon: '',
       },
     ])
-
-    const clientId = ref(process.env.GITHUB_CLIENT_ID)
+    const id = process.env.GITHUB_CLIENT_ID
+    const clientId = ref(id)
     const authToken = ref(root.$cookies.get('access_token'))
     const isLogin = ref(authToken.value && authToken.value !== '')
     const logout = () => {
