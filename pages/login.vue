@@ -15,21 +15,23 @@ export default Vue.extend({
       code,
     }
     try {
+      $axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
       const res = await $axios.post(
-        'https://github.com/login/oauth/access_token',
+        'https://github.com/login/oauth/access_token/',
         sendData,
         {
           headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
             ACCEPT: 'application/json',
-            'Access-Control-Allow-Headers':
-              'X-Requested-With, Origin, X-Csrftoken, Content-Type, Accept',
-            'Access-Control-Allow-Origin': 'https://github.com/',
           },
           withCredentials: true,
         }
       )
-      if (res.status === 200) {
+      if (res.status === 200 && res.data.access_token) {
         app.$cookies.set('access_token', res.data.access_token)
+        redirect('/')
+      } else {
+        alert('ログインに失敗しました')
         redirect('/')
       }
     } catch (e) {
