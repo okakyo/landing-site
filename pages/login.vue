@@ -15,7 +15,7 @@ export default Vue.extend({
       code,
     }
     try {
-      const res = await $axios.post(
+      const res = await $axios.$post(
         'https://github.com/login/oauth/access_token',
         sendData,
         {
