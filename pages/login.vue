@@ -23,6 +23,7 @@ export default Vue.extend({
         {
           headers: {
             ACCEPT: 'application/json',
+            Origin: '*',
           },
         }
       )
