@@ -83,7 +83,13 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    proxy: true,
+    Headers: {
+      Accept: 'application/json',
+      'Access-Control-Allow-Origin': 'https://github.com/',
+      'Content-Type': 'application/json;charset=utf-8',
+      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+    },
   },
   /*
    ** Content module configuration
