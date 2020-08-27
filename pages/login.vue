@@ -22,13 +22,14 @@ export default Vue.extend({
         {
           headers: {
             Accept: 'application/json',
-            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Origin': 'https://github.com/',
             'Content-Type': 'application/json;charset=utf-8',
             'Access-Control-Allow-Methods':
               'GET, POST, PATCH, PUT, DELETE, OPTIONS',
             'Access-Control-Allow-Headers':
               'Origin, Content-Type, X-Auth-Token',
           },
+          withCredentials: true,
         }
       )
       if (res.status === 200) {
