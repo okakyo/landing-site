@@ -4,6 +4,7 @@
     flat
     color="#00cba9"
     :clipped-left="$vuetify.breakpoint.lgAndUp"
+    :clipped-right="$vuetify.breakpoint.mdAndUp"
   >
     <v-btn text exact depressed dark nuxt to="/" color="text--white">
       <h3>DENX</h3>

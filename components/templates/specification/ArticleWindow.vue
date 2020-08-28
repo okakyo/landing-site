@@ -29,19 +29,7 @@
         </v-card>
       </v-col>
       <v-col :hidden="$vuetify.breakpoint.smAndDown" md="3" xl="4">
-        <v-list dense>
-          <v-list-item
-            v-for="(item, i) in page.toc"
-            :key="i"
-            nuxt
-            link
-            :to="'/docs/' + page.slug + '#' + item.id"
-          >
-            <v-list-item-content>
-              {{ item.text }}
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
+        <toc-nav-list :page="page" :toc="page.toc" />
       </v-col>
     </v-row>
   </div>
@@ -50,6 +38,7 @@
 import { defineComponent, ref } from '@vue/composition-api'
 import { dateParser } from '@/libs'
 import DocNavList from '~/components/molecules/lists/nav/DocNavList.vue'
+import TocNavList from '~/components/molecules/lists/nav/TocNavList.vue'
 export default defineComponent({
   name: 'Article',
   props: {
@@ -74,6 +63,7 @@ export default defineComponent({
   },
   components: {
     DocNavList,
+    TocNavList,
   },
   filters: {
     dateParser(date: string) {

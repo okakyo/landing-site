@@ -4,22 +4,22 @@ title: "Re-Server での技術的仕様のまとめ"
 
 ## 使用するフレームワーク
 
-- ### Frontend
+### Frontend
 
-  - Nuxt.js ( Vuetify, Nuxt Content, Vue Composition API )
-  - Firebase Authentication
-  - Vercel
+- Nuxt.js ( Vuetify, Nuxt Content, Vue Composition API )
+- Firebase Authentication
+- Vercel
 
-- ### Backend
+### Backend
 
-  - Nest.js
-  - Redis
-  - MariaDB(MySQL)
+- Nest.js
+- Redis
+- MariaDB(MySQL)
   
-- ### その他
+### その他
 
-  - docker-compose
-  - Vercel
+- docker-compose
+- Vercel
 
 ## 仕様
 
