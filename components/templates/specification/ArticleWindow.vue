@@ -2,7 +2,7 @@
   <div>
     <doc-nav-list v-if="isSidebar" :nav-lists="docLists" :drawer="drawer" />
     <v-row>
-      <v-col cols="12" sm="10" md="9" xl="8">
+      <v-col cols="12">
         <v-card outlined min-height="600" class="pa-3">
           <v-toolbar flat>
             <v-app-bar-nav-icon
