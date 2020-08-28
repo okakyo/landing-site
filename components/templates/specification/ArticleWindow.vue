@@ -56,7 +56,7 @@ export default defineComponent({
     },
   },
   setup() {
-    const drawer = ref(true)
+    const drawer = ref(false)
     return {
       drawer,
     }
