@@ -14,28 +14,34 @@
         </v-list-item-icon>
         <v-list-item-title>Top</v-list-item-title>
       </v-list-item>
-      <v-list-group
-        v-for="(list, i) in sidebarLists"
-        :key="i"
-        :prepend-icon="list.icon"
-      >
+      <v-list-group prepend-icon="mdi-folder">
         <template v-slot:activator>
-          <v-list-item-title>{{ list.name }}</v-list-item-title>
+          <v-list-item-title>プロジェクト</v-list-item-title>
         </template>
-        <v-list-item
-          v-for="(item, index) in navLists"
-          :key="index"
-          nuxt
-          link
-          color="primary"
+        <v-list-group
+          v-for="(list, i) in sidebarLists"
+          :key="i"
+          :prepend-icon="list.icon"
+          sub-group
         >
-          <v-list-item-icon>
-            <v-icon></v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>
-            {{ item.title }}
-          </v-list-item-title>
-        </v-list-item>
+          <template v-slot:activator>
+            <v-list-item-title>{{ list.name }}</v-list-item-title>
+          </template>
+          <v-list-item
+            v-for="(item, index) in navLists"
+            :key="index"
+            nuxt
+            link
+            color="primary"
+          >
+            <v-list-item-icon>
+              <v-icon></v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>
+              {{ item.title }}
+            </v-list-item-title>
+          </v-list-item>
+        </v-list-group>
       </v-list-group>
     </v-list>
   </v-navigation-drawer>
@@ -59,7 +65,7 @@ export default defineComponent({
   },
   setup(props: Props) {
     const sidebarLists = ref([
-      { name: 'プロジェクト', icon: 'mdi-folder', subIcon: '', slug: '/docs' },
+      { name: 'Index', icon: 'mdi-folder', subIcon: '', slug: '/docs' },
       {
         name: 'エニグマ',
         icon: 'mdi-account-group',
