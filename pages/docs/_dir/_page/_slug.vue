@@ -8,8 +8,12 @@ export default defineComponent({
   name: 'question',
   layout: 'doc',
   async asyncData({ $content, params }) {
-    const page = await $content('documents/about', params.slug).fetch()
-    const docLists = await $content('documents/about')
+    console.log(params.dir)
+    const page = await $content(
+      `/${params.dir}/${params.page}`,
+      params.slug
+    ).fetch()
+    const docLists = await $content('projects/about')
       .only(['title', 'thumbnail', 'slug'])
       .limit(5)
       .fetch()

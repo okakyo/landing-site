@@ -28,7 +28,6 @@
           nuxt
           link
           color="primary"
-          :to="list.slug + '/' + item.slug"
         >
           <v-list-item-icon>
             <v-icon></v-icon>
@@ -65,13 +64,13 @@ export default defineComponent({
         name: 'エニグマ',
         icon: 'mdi-account-group',
         subIcon: 'mdi-account',
-        slug: '/docs/enigma',
+        slug: '/docs/projects/enigma',
       },
       {
         name: 'コード',
         icon: 'mdi-newspaper-variant-multiple',
         subIcon: 'mdi-newspaper-variant',
-        slug: '/docs/specification',
+        slug: '/docs/projects/specification',
       },
     ])
     return {

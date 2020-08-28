@@ -11,7 +11,7 @@
         :key="i"
         nuxt
         link
-        :to="'/docs/' + page.slug + '#' + item.id"
+        :to="'/docs' + page.dir + '/' + page.slug + '#' + item.id"
       >
         <v-list-item-title v-if="item.depth == 2" class="text-primary">{{
           item.text
@@ -20,13 +20,14 @@
           item.text
         }}</v-list-item-subtitle>
       </v-list-item>
+      {{ page.slug }}
     </v-list>
   </v-navigation-drawer>
 </template>
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
 export default defineComponent({
-  name: 'tocNavList',
+  name: 'TocNavList',
   props: {
     toc: {
       type: Array,
@@ -35,6 +36,11 @@ export default defineComponent({
     page: {
       type: Object,
       required: true,
+    },
+    url: {
+      type: String,
+      required: false,
+      default: '',
     },
   },
 })

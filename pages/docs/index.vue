@@ -36,7 +36,7 @@
             lg="3"
             xl="2"
           >
-            <v-card :to="'/docs/' + card.slug">
+            <v-card :to="'/docs' + card.dir + '/' + card.slug">
               <v-img
                 :src="
                   card.thumbnail === '' ? '/images/404-min.png' : card.thumbnail
@@ -60,10 +60,10 @@ export default Vue.extend({
     DocNavList,
   },
   async asyncData({ $content }) {
-    const docLists = await $content('documents/about')
-      .only(['title', 'thumbnail', 'slug'])
+    const docLists = await $content('projects/about')
+      .only(['title', 'thumbnail', 'slug', 'dir'])
       .fetch()
-    const lists = await $content('documents').fetch()
+    const lists = await $content('projects').fetch()
     return { docLists, lists }
   },
   data() {
@@ -81,7 +81,7 @@ export default Vue.extend({
         return
       }
 
-      this.articles = await this.$content('documents')
+      this.articles = await this.$content('projects')
         .only(['title'])
         .limit(6)
         .search(query)
