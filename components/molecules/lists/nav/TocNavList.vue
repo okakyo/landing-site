@@ -20,7 +20,6 @@
           item.text
         }}</v-list-item-subtitle>
       </v-list-item>
-      {{ page.slug }}
     </v-list>
   </v-navigation-drawer>
 </template>
