@@ -19,13 +19,13 @@
           <v-list-item-title>プロジェクト</v-list-item-title>
         </template>
         <v-list-group
-          v-for="(list, i) in sidebarLists"
+          v-for="(list, i) in navLists"
           :key="i"
           :prepend-icon="list.icon"
           sub-group
         >
           <template v-slot:activator>
-            <v-list-item-title>{{ list.name }}</v-list-item-title>
+            <v-list-item-title>{{ list.title }}</v-list-item-title>
           </template>
           <v-list-item
             v-for="(item, index) in navLists"
@@ -38,7 +38,7 @@
               <v-icon></v-icon>
             </v-list-item-icon>
             <v-list-item-title>
-              {{ item.title }}
+              {{ item }}
             </v-list-item-title>
           </v-list-item>
         </v-list-group>
@@ -47,7 +47,7 @@
   </v-navigation-drawer>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 type Props = {
   drawer: boolean
 }
@@ -62,26 +62,6 @@ export default defineComponent({
       type: Array,
       required: false,
     },
-  },
-  setup(props: Props) {
-    const sidebarLists = ref([
-      { name: 'Index', icon: 'mdi-folder', subIcon: '', slug: '/docs' },
-      {
-        name: 'エニグマ',
-        icon: 'mdi-account-group',
-        subIcon: 'mdi-account',
-        slug: '/docs/projects/enigma',
-      },
-      {
-        name: 'コード',
-        icon: 'mdi-newspaper-variant-multiple',
-        subIcon: 'mdi-newspaper-variant',
-        slug: '/docs/projects/specification',
-      },
-    ])
-    return {
-      sidebarLists,
-    }
   },
 })
 </script>

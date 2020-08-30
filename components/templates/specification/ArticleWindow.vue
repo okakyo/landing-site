@@ -1,6 +1,6 @@
 <template>
   <div>
-    <doc-nav-list v-if="isSidebar" :nav-lists="docLists" :drawer="drawer" />
+    <doc-nav-list :nav-lists="docLists" :drawer="drawer" />
     <v-row>
       <v-col cols="12">
         <v-card outlined min-height="600" class="pa-3">
@@ -25,7 +25,7 @@
             </v-card-subtitle>
           </v-toolbar>
           <v-divider />
-          <nuxt-content class="ma-3 pa-3" :document="page" />
+          <nuxt-content id="article" class="ma-3 pa-3" :document="page" />
         </v-card>
       </v-col>
       <v-col :hidden="$vuetify.breakpoint.smAndDown" md="3" xl="4">
@@ -58,6 +58,9 @@ export default defineComponent({
   },
   setup() {
     const drawer = ref(false)
+
+    // Twitter のURLがあれば、カードが生成されるように設計する
+
     return {
       drawer,
     }

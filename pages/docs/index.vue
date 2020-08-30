@@ -63,7 +63,7 @@ export default Vue.extend({
     const docLists = await $content('projects/about')
       .only(['title', 'thumbnail', 'slug', 'dir'])
       .fetch()
-    const lists = await $content('projects').fetch()
+    const lists = await $content('projects/about').fetch()
     return { docLists, lists }
   },
   data() {

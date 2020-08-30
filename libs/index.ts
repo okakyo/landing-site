@@ -1,1 +1,1 @@
-export { dateParser } from './timeParser'
+export { dateParser } from './utils/timeParser'
