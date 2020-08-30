@@ -25,5 +25,10 @@ export default defineComponent({
       serviceDescriptions,
     }
   },
+  mounted() {
+    document.querySelectorAll('meta').forEach((item) => {
+      console.log(item.content)
+    })
+  },
 })
 </script>
