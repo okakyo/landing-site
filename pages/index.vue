@@ -26,8 +26,8 @@ export default defineComponent({
     }
   },
   mounted() {
-    document.querySelectorAll('meta').forEach((item) => {
-      console.log(item.content)
+    this.$axios.get('/api/hello').then((res) => {
+      console.log(res)
     })
   },
 })

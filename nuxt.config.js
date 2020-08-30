@@ -83,6 +83,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
+    baseUrl: 'https://landing-site-okakyo.vercel.app',
     Headers: {
       Accept: 'application/json',
       'Access-Control-Allow-Origin': 'https://github.com/',
