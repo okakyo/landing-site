@@ -6,7 +6,8 @@ import axios from 'axios'
 export default async (request: NowRequest, response: NowResponse) => {
   const getMeta: any = {}
   const res = await axios.get('https://github.com/okakyo/landing-site')
-  const html = new DOMParser().parseFromString(res.data, 'text/html')
+  const parser = new DOMParser()
+  const html = parser.parseFromString(res.data, 'text/html')
   const headers = html.head.children
   Array.from(headers).map((v) => {
     const prop = v.getAttribute('property')
