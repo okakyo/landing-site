@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col cols="12">
+    <v-col cols="12" sm="10" md="8" lg="6">
       <v-card outlined min-height="600" class="pa-3">
         <v-toolbar flat>
           <v-card-title class="headline">
@@ -19,10 +19,6 @@ import { defineComponent } from '@vue/composition-api'
 export default defineComponent({
   name: 'aboutContent',
   props: {
-    title: {
-      type: String,
-      default: 'About',
-    },
     page: {
       type: Object,
       required: true,
