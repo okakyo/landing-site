@@ -12,7 +12,7 @@
     "lint": "npm run lint:js && npm run lint:style",
     "lint:md": "markdownlint content",
     "test": "jest",
-    "deploy":"firebase deploy"
+    "deploy": "firebase deploy"
   },
   "lint-staged": {
     "*.{ts,js,vue}": "eslint --fix",
@@ -34,11 +34,9 @@
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "@nuxtjs/vuetify": "^1.11.2",
-    "@vercel/node": "^1.7.4",
     "@vue/composition-api": "^1.0.0-beta.6",
     "cookie-universal-nuxt": "^2.1.4",
     "firebase": "^7.19.1",
-    "jsdom": "^16.4.0",
     "nuxt": "^2.14.0",
     "prism-themes": "^1.4.0",
     "rehype-katex": "^3.1.0",
@@ -55,7 +53,6 @@
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/now-builder": "^0.17.3",
     "@nuxtjs/stylelint-module": "^4.0.0",
-    "@types/jsdom": "^16.2.3",
     "@vue/test-utils": "^1.0.3",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
