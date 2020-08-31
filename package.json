@@ -36,6 +36,7 @@
     "@vercel/node": "^1.7.4",
     "@vue/composition-api": "^1.0.0-beta.6",
     "cookie-universal-nuxt": "^2.1.4",
+    "firebase": "^7.19.1",
     "jsdom": "^16.4.0",
     "nuxt": "^2.14.0",
     "prism-themes": "^1.4.0",
