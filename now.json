@@ -11,11 +11,8 @@
           },
           "serverFiles": ["package.json", "content/**/*.md"]
         }
-      },
-      {
-      "src": "api/**/*.ts",
-      "use": "@vercel/node"
-    }
+      }
+      
     ],
     "routes": [
       { "src": "/_nuxt/.+", "headers": { "Cache-Control": "max-age=31557600" } },
@@ -26,15 +23,6 @@
           "cache-control": "public, max-age=43200, immutable",
           "Service-Worker-Allowed": "/"
         }
-      }, 
-      {
-      "src": "/api/hello",
-      "dest": "/api/hello.ts",
-      "methods": ["GET", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Methods": "GET",
-        "Access-Control-Allow-Headers": "Content-Type"
       }
-    }
     ]
   }
