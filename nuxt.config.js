@@ -45,7 +45,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~/plugins/composition'],
+  plugins: ['~/plugins/composition', '~/plugins/firebase.config'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -82,16 +82,7 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {
-    baseURL: 'https://landing-site-okakyo.vercel.app',
-    Headers: {
-      Accept: 'application/json',
-      'Access-Control-Allow-Origin': 'https://github.com/',
-      'Content-Type': 'application/json;charset=utf-8',
-      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-    },
-  },
+  axios: {},
   /*
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration

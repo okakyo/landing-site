@@ -20,7 +20,9 @@
     />
 
     <v-divider />
-    <v-btn class="my-6" nuxt block outlined @click="loginForm">ログイン</v-btn>
+    <v-btn class="my-6" nuxt block outlined @click="loginForm"
+      >権限を与える</v-btn
+    >
   </v-form>
 </template>
 
