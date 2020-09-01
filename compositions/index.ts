@@ -1,5 +1,5 @@
 import { reactive, toRefs, InjectionKey } from '@vue/composition-api'
-import { StateInterface, UserInterface } from '~/interfaces'
+import { StateInterface, UserInterface } from '@/interfaces'
 export const useGlobalState = () => {
   const globalState = reactive<StateInterface>({
     userState: {
