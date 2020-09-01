@@ -28,7 +28,7 @@
             <v-card-title>
               <h3 class="">Hello World</h3>
             </v-card-title>
-            <v-card-text> </v-card-text>
+            <v-card> </v-card>
           </v-card>
         </v-lazy>
       </v-col>
@@ -39,11 +39,7 @@
             {{ item.title }}
           </v-card-title>
           <v-card-text>
-            <p>
-              Vuetify is a progressive Material Design component framework for
-              Vue.js. It was designed to empower developers to create amazing
-              applications.
-            </p>
+            {{ item.description }}
           </v-card-text>
         </v-card>
       </v-col>

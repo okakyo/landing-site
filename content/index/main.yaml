@@ -1,0 +1,10 @@
+contents:
+  - title: "Markdown, UML に対応" 
+    icon: ""
+    description: "Markdown, やUML, 絵文字にも対応済み。"    
+  - title: "チームで記事を共有"
+    icon: ""
+    description: "チームで記事を共有し、GitHub で記事を管理"
+  - title: "テンプレートを独自に設定"
+    icon: ""
+    description: "チームで記事のテンプレートを設定し、記入時に読込み、コピーを生成することが可能"

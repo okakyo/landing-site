@@ -1,7 +1,9 @@
 <template>
   <div>
     <illust-window />
-    <description-window :service-descriptions="serviceDescriptions" />
+    <description-window
+      :service-descriptions="serviceDescriptions[0].contents"
+    />
     <price-window />
   </div>
 </template>
@@ -19,8 +21,8 @@ export default defineComponent({
     PriceWindow,
   },
   async asyncData({ $content }) {
-    const serviceDescriptions = await $content('index/feature')
-      .only(['title'])
+    const serviceDescriptions = await $content('index')
+      .only(['contents'])
       .fetch()
     return {
       serviceDescriptions,

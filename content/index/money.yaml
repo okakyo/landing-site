@@ -1,0 +1,23 @@
+
+contents:
+  - title: "Free Plan" 
+    price: ""
+    plan:
+      - "sampleA"
+      - "sampleB"
+      - "sampleC"
+      - "sampleD"
+  - title: "Normal Plan"
+    price: ""
+    plan:
+      - "sampleA"
+      - "sampleB"
+      - "sampleC"
+      - "sampleD" 
+  - title: "Advanced Plan"
+    price: ""
+    plan:
+      - "sampleA"
+      - "sampleB"
+      - "sampleC"
+      - "sampleD"
