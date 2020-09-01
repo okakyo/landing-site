@@ -12,7 +12,7 @@ export default defineComponent({
       `/${params.dir}/${params.project}`,
       params.slug
     ).fetch()
-    const docLists = await $content('projects', { deep: true })
+    const docLists = await $content('projects/about')
       .only(['title', 'thumbnail', 'slug', 'dir'])
       .fetch()
     return {
