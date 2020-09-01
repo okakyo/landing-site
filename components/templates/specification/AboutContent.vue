@@ -44,6 +44,7 @@ export default defineComponent({
 .nuxt-content ul,
 .nuxt-content ol {
   margin-bottom: 1.5em;
+  margin-left: 1em;
 }
 .nuxt-content li {
   line-height: 2em;
