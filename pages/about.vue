@@ -1,8 +1,6 @@
 <template>
   <v-container>
-    <v-row justify="center">
-      <about-content />
-    </v-row>
+    <about-content :page="page" />
   </v-container>
 </template>
 
@@ -14,6 +12,10 @@ export default defineComponent({
   name: 'aboutIndexPage',
   components: {
     AboutContent,
+  },
+  async asyncData({ $content }) {
+    const page = await $content('index', 'About').fetch()
+    return { page }
   },
 })
 </script>
