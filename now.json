@@ -9,7 +9,7 @@
           "tscOptions": {
             "sourceMap": false
           },
-          "serverFiles": ["package.json", "content/**/*.md"]
+          "serverFiles": ["package.json", "content/**/*"]
         }
       }
       
