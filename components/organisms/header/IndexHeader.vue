@@ -9,10 +9,24 @@
     <v-btn text exact depressed dark nuxt to="/" color="text--white">
       <h3>DENX</h3>
     </v-btn>
+    <div>
+      <v-btn
+        v-for="(btn, index) in commonBtn"
+        :key="index"
+        text
+        small
+        depressed
+        dark
+        nuxt
+        :to="btn.url"
+        color="text--white"
+        >{{ btn.name }}
+      </v-btn>
+    </div>
     <v-spacer />
     <div v-if="isLogin">
       <v-btn
-        v-for="(btn, index) in smallBtn"
+        v-for="(btn, index) in accountBtn"
         :key="index"
         text
         small
@@ -64,7 +78,14 @@ type SmallBtn = {
 export default defineComponent({
   name: 'IndexHeader',
   setup(props: any, { root }: SetupContext) {
-    const smallBtn = ref<SmallBtn[]>([
+    const accountBtn = ref<SmallBtn[]>([
+      {
+        name: '仕様書',
+        url: '/docs',
+        icon: '',
+      },
+    ])
+    const commonBtn = ref<SmallBtn[]>([
       {
         name: 'about',
         url: '/about',
@@ -72,8 +93,8 @@ export default defineComponent({
       },
 
       {
-        name: '仕様書',
-        url: '/docs',
+        name: '利用規約',
+        url: '/consensus',
         icon: '',
       },
     ])
@@ -87,7 +108,8 @@ export default defineComponent({
       root.$router.push('/logout')
     }
     return {
-      smallBtn,
+      accountBtn,
+      commonBtn,
       isLogin,
       logout,
       clientId,

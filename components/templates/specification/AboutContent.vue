@@ -2,9 +2,11 @@
   <base-component>
     <v-card outlined min-height="600" class="pa-3">
       <v-toolbar flat>
+        <v-spacer />
         <v-card-title class="headline">
           {{ page.title }}
         </v-card-title>
+        <v-spacer />
       </v-toolbar>
       <v-divider />
       <nuxt-content id="article" class="ma-3 pa-3" :document="page" />
