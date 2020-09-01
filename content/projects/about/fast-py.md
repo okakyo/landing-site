@@ -1,6 +1,12 @@
 ---
 title: "FastAPI を利用したサーバー"
 thumbnail: ""
+description: "FastAPIを利用したアプリを実装計画中。マイクロサービスアーキテクチャを利用して、機械学習用のサーバーを構築する際に利用する。"
+tags:
+    - python
+    - fast-api
+    - server-side
+    - docker
 ---
 
 ## どういったもの
@@ -8,7 +14,9 @@ thumbnail: ""
 FastAPI を利用して Python のサーバーを立てます:smile:。
 
 ## 使用するフレームワーク
+
 ### フロントエンド
+
 ### サーバーサイド
 
 ## 仕様について

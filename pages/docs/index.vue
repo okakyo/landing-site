@@ -81,11 +81,12 @@ export default Vue.extend({
         return
       }
 
-      this.articles = await this.$content('projects')
-        .only(['title'])
+      this.articles = await this.$content('projects', { deep: true })
+        .only(['title', 'description'])
         .limit(6)
         .search(query)
         .fetch()
+      console.log(this.articles)
     },
   },
   methods: {
