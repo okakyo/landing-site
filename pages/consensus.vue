@@ -14,7 +14,7 @@ export default defineComponent({
     AboutContent,
   },
   async asyncData({ $content }) {
-    const page = await $content('index', 'Consensus').fetch()
+    const page = await $content('index', 'consensus').fetch()
     return { page }
   },
 })
