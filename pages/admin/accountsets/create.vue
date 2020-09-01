@@ -2,7 +2,9 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="10" sm="9" md="8" lg="6" xl="4">
-        <LoginForm />
+        <v-card>
+          <LoginForm />
+        </v-card>
       </v-col>
     </v-row>
   </v-container>

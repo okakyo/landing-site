@@ -1,21 +1,20 @@
 <template>
-  <v-row justify="center">
-    <v-col cols="12" sm="10" md="8" lg="6">
-      <v-card outlined min-height="600" class="pa-3">
-        <v-toolbar flat>
-          <v-card-title class="headline">
-            {{ page.title }}
-          </v-card-title>
-        </v-toolbar>
-        <v-divider />
-        <nuxt-content id="article" class="ma-3 pa-3" :document="page" />
-      </v-card>
-    </v-col>
-  </v-row>
+  <base-component>
+    <v-card outlined min-height="600" class="pa-3">
+      <v-toolbar flat>
+        <v-card-title class="headline">
+          {{ page.title }}
+        </v-card-title>
+      </v-toolbar>
+      <v-divider />
+      <nuxt-content id="article" class="ma-3 pa-3" :document="page" />
+    </v-card>
+  </base-component>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
+import BaseComponent from '@/components/molecules/grids/BaseGrid.vue'
 export default defineComponent({
   name: 'aboutContent',
   props: {
@@ -23,6 +22,9 @@ export default defineComponent({
       type: Object,
       required: true,
     },
+  },
+  components: {
+    BaseComponent,
   },
 })
 </script>
