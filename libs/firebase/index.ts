@@ -1,3 +1,3 @@
 export { loginService, logoutService } from './auth'
 export {} from './functions'
-export {} from './store'
+export { UserStore } from './store/store'
