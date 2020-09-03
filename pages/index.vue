@@ -12,7 +12,6 @@ import { defineComponent } from '@vue/composition-api'
 import DescriptionWindow from '@/components/templates/index/Description.vue'
 import IllustWindow from '@/components/templates/index/IllustWindow.vue'
 import PriceWindow from '@/components/templates/index/PriceWindow.vue'
-
 export default defineComponent({
   name: 'Index',
   components: {

@@ -1,7 +1,7 @@
 import { firebase } from '@/plugins/firebase.config'
 import 'firebase/auth'
 import { NuxtCookies } from 'cookie-universal-nuxt'
-import { ParseError } from '@/interfaces'
+import { ParseAuthError } from '@/interfaces'
 
 export type ResponseHttp = {
   result: boolean
@@ -51,7 +51,7 @@ export const loginService = async (
       return { result: false, error: 'メールの登録を先に済ませてください。' }
     }
   } catch (e) {
-    return { result: false, error: e.message }
+    return { result: false, error: ParseAuthError(e) }
   }
 }
 
@@ -66,7 +66,7 @@ export const logoutService = async (
         cookies.remove('set-token')
       })
   } catch (e) {
-    return { result: false, error: ParseError(e) }
+    return { result: false, error: ParseAuthError(e) }
   }
 }
 

@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 
-export const ParseError = (e: firebase.auth.Error): string => {
+export const ParseAuthError = (e: firebase.auth.Error): string => {
   const code = e.code
   switch (code) {
     case 'auth/email-already-in-use':

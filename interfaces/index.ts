@@ -1,3 +1,3 @@
 export { UserDetailInterface, UserInterface } from './dto/user'
 export { StateInterface } from './dto/state'
-export { ParseError } from './utils/error'
+export { ParseAuthError } from './utils/error'
