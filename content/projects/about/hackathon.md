@@ -1,6 +1,7 @@
 ---
 title: "ハッカソン"
 thumbnail: ""
+status: 1
 ---
 
 ## どういったものか

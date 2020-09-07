@@ -7,6 +7,7 @@ tags:
     - fast-api
     - server-side
     - docker
+status: 0
 ---
 
 ## どういったもの

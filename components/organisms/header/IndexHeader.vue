@@ -87,12 +87,13 @@ export default defineComponent({
         url: '/about',
         icon: '',
       },
-
+      /*
       {
         name: '利用規約',
         url: '/consensus',
         icon: '',
       },
+      */
     ])
     const router = root.$router
     const clientId = ref(process.env.GITHUB_CLIENT_ID)

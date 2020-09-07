@@ -1,5 +1,14 @@
 # landing
 
+## このアプリについて
+## ドキュメントの仕様について
+- メタ要素
+    - title : 記事のタイトル
+    - thumbnail: サムネイルのパス（string）
+    - tags: タグの要素(Array[string])
+    - description: 記事の概略
+    - content : 記事の本文
+    
 ## Build Setup
 
 ```bash

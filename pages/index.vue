@@ -22,6 +22,7 @@ export default defineComponent({
   async asyncData({ $content }) {
     const serviceDescriptions = await $content('index')
       .only(['contents'])
+      .sortBy('path')
       .fetch()
     return {
       serviceDescriptions,

@@ -1,6 +1,7 @@
 ---
 title: "Re-Server"
 thumbnail: ""
+status: 0
 ---
 
 プロジェクトの URL：<https://github.com/okakyo/re-server>
