@@ -55,12 +55,8 @@
       depressed
       dark
       nuxt
-      :href="
-        'https://github.com/login/oauth/authorize?client_id=' +
-        clientId +
-        '&scope=repo'
-      "
       color="text--white"
+      @click="githubLogin()"
     >
       <h3>ログイン</h3>
     </v-btn>
@@ -69,7 +65,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, SetupContext } from '@vue/composition-api'
-
+import { loginService } from '@/libs/firebase'
 type SmallBtn = {
   name: string
   icon: string
@@ -98,7 +94,7 @@ export default defineComponent({
         icon: '',
       },
     ])
-
+    const router = root.$router
     const clientId = ref(process.env.GITHUB_CLIENT_ID)
     const authToken = ref(root.$cookies.get('access_token'))
     const isLogin = ref(authToken.value && authToken.value !== '')
@@ -107,12 +103,27 @@ export default defineComponent({
       root.$nextTick(() => (isLogin.value = false))
       root.$router.push('/logout')
     }
+
+    async function githubLogin() {
+      try {
+        const result = await loginService('GitHub', root.$cookies)
+        if (result) {
+          root.$nextTick(() => (isLogin.value = true))
+          router.push('/')
+        } else {
+          console.error(result)
+        }
+      } catch (e) {
+        console.error(e)
+      }
+    }
     return {
       accountBtn,
       commonBtn,
       isLogin,
       logout,
       clientId,
+      githubLogin,
     }
   },
 })

@@ -10,8 +10,7 @@ export type ResponseHttp = {
 
 export const loginService = async (
   typeProvider: 'GitHub' | 'Google',
-  cookies: NuxtCookies,
-  setUserState: any
+  cookies: NuxtCookies
 ) => {
   try {
     const provider =
@@ -20,12 +19,15 @@ export const loginService = async (
         : new firebase.auth.GoogleAuthProvider()
     const getUserInfo = await firebase.auth().signInWithPopup(provider)
     const setUser = getUserInfo.user
+    console.log(setUser)
     if (setUser) {
       // Token をCookie に登録されるように実装する
       const token = await setUser.getIdToken(true)
       if (token) {
-        cookies.set('set-token', token)
+        cookies.set('access_token', token)
       }
+
+      // ここに、Firestore の情報を追加する
       const userInfo = {
         id: setUser.uid,
         name: setUser.displayName ? setUser.displayName : '',
@@ -33,22 +35,11 @@ export const loginService = async (
         emailVerified: setUser.emailVerified,
         photoUrl: setUser.photoURL ? setUser.photoURL : '',
       }
-      setUserState(userInfo)
-
       // TODO: ここでFirebaseの取得したState情報を登録する
       return {
         result: true,
         error: userInfo.email === '' || userInfo.name === '' ? '' : undefined,
       }
-    } else {
-      // NOTE: ここでメールが認証されていない場合、もう一度メールを再送信したうえで認証を要求する
-      const currentUser = firebase.auth().currentUser
-      if (currentUser !== null && !currentUser.emailVerified)
-        await currentUser.sendEmailVerification({
-          url: 'https://example.com/mypage/',
-          handleCodeInApp: false,
-        })
-      return { result: false, error: 'メールの登録を先に済ませてください。' }
     }
   } catch (e) {
     return { result: false, error: ParseAuthError(e) }

@@ -14,34 +14,25 @@
         </v-list-item-icon>
         <v-list-item-title>Top</v-list-item-title>
       </v-list-item>
-      <v-list-group prepend-icon="mdi-folder">
+      <v-list-group prepend-icon="mdi-folder" value="true">
         <template v-slot:activator>
           <v-list-item-title>プロジェクト</v-list-item-title>
         </template>
-        <v-list-group
+        <v-list-item
           v-for="(list, i) in navLists"
           :key="i"
           :prepend-icon="list.icon"
-          sub-group
+          nuxt
+          link
+          :to="'/docs' + list.path"
         >
-          <template v-slot:activator>
+          <v-list-item-icon>
+            <v-icon></v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
             <v-list-item-title>{{ list.title }}</v-list-item-title>
-          </template>
-          <v-list-item
-            v-for="(item, index) in navLists"
-            :key="index"
-            nuxt
-            link
-            color="primary"
-          >
-            <v-list-item-icon>
-              <v-icon></v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>
-              {{ item }}
-            </v-list-item-title>
-          </v-list-item>
-        </v-list-group>
+          </v-list-item-content>
+        </v-list-item>
       </v-list-group>
     </v-list>
   </v-navigation-drawer>
