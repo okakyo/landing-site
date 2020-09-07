@@ -36,6 +36,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api'
+
 import { dateParser } from '@/libs'
 import DocNavList from '@/components/molecules/lists/nav/DocNavList.vue'
 import TocNavList from '@/components/molecules/lists/nav/TocNavList.vue'
@@ -56,6 +57,7 @@ export default defineComponent({
       required: true,
     },
   },
+
   setup() {
     const drawer = ref(false)
 

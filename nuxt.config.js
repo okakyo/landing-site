@@ -77,12 +77,22 @@ export default {
   env: {
     GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
     GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
+    baseUrl: process.env.VERCEL_URL || 'http://127.0.0.1:3000',
+    API_HOST: process.env.API_HOST,
   },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: process.env.baseUrl,
+    withCredentials: process.env.NODE_ENV !== 'production',
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+      'Access-Control-Allow-Origin': '*',
+    },
+    timeout: 20000,
+  },
   /*
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration
