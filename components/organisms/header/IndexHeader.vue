@@ -66,6 +66,7 @@
 <script lang="ts">
 import { defineComponent, ref, SetupContext } from '@vue/composition-api'
 import { loginService } from '@/libs/firebase'
+import { firebase } from '@/plugins/firebase.config'
 type SmallBtn = {
   name: string
   icon: string
@@ -97,12 +98,26 @@ export default defineComponent({
     ])
     const router = root.$router
     const clientId = ref(process.env.GITHUB_CLIENT_ID)
-    const authToken = ref(root.$cookies.get('access_token'))
-    const isLogin = ref(authToken.value && authToken.value !== '')
+
+    // ログイン周りを今一度修正する必要がある
+    const isLogin = ref(false)
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        root.$nextTick(() => (isLogin.value = true))
+      }
+    })
     const logout = () => {
-      root.$cookies.remove('access_token')
-      root.$nextTick(() => (isLogin.value = false))
-      root.$router.push('/logout')
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          root.$nextTick(() => (isLogin.value = false))
+          root.$router.push('/')
+        })
+        .catch((e) => {
+          console.error(e)
+        })
     }
 
     async function githubLogin() {

@@ -20,12 +20,6 @@ export const loginService = async (
     const getUserInfo = await firebase.auth().signInWithPopup(provider)
     const setUser = getUserInfo.user
     if (setUser) {
-      // Token をCookie に登録されるように実装する
-      const token = await setUser.getIdToken(true)
-      if (token) {
-        cookies.set('access_token', token)
-      }
-
       // ここに、Firestore の情報を追加する
       const userInfo = {
         id: setUser.uid,
