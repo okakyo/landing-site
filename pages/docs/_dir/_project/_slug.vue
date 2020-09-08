@@ -16,11 +16,6 @@ export default defineComponent({
     const docLists = await $content('projects/about')
       .only(['title', 'thumbnail', 'slug', 'dir'])
       .fetch()
-    fetch('https://github.com/okakyo/landing-site').then(async (res) => {
-      const data = await res.text()
-      console.log(data)
-    })
-
     return {
       page,
       docLists,
