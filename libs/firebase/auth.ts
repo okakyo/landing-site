@@ -19,7 +19,6 @@ export const loginService = async (
         : new firebase.auth.GoogleAuthProvider()
     const getUserInfo = await firebase.auth().signInWithPopup(provider)
     const setUser = getUserInfo.user
-    console.log(setUser)
     if (setUser) {
       // Token をCookie に登録されるように実装する
       const token = await setUser.getIdToken(true)
@@ -38,7 +37,10 @@ export const loginService = async (
       // TODO: ここでFirebaseの取得したState情報を登録する
       return {
         result: true,
-        error: userInfo.email === '' || userInfo.name === '' ? '' : undefined,
+        error:
+          userInfo.email === '' || userInfo.name === ''
+            ? '個人情報を入力してください'
+            : undefined,
       }
     }
   } catch (e) {

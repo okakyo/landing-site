@@ -1,7 +1,11 @@
 ---
-title: "ハッカソン"
+title: ハッカソン
 thumbnail: ""
 status: 1
+descriiption: ""
+tags:
+  - hackathon
+  
 ---
 
 ## どういったものか

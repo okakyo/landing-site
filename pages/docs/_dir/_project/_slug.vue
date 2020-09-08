@@ -1,5 +1,9 @@
 <template>
-  <article-window :page="page" :doc-lists="docLists" />
+  <article-window
+    :page="page"
+    :public-lists="publicLists"
+    :draft-lists="draftLists"
+  />
 </template>
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
@@ -14,11 +18,14 @@ export default defineComponent({
       params.slug
     ).fetch()
     const docLists = await $content('projects/about')
-      .only(['title', 'thumbnail', 'slug', 'dir'])
+      .only(['title', 'status', 'thumbnail', 'path', 'slug', 'dir'])
       .fetch()
+    const publicLists = docLists.filter((item: any) => item.status === 0)
+    const draftLists = docLists.filter((item: any) => item.status !== 0)
     return {
       page,
-      docLists,
+      publicLists,
+      draftLists,
     }
   },
   components: {

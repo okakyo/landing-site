@@ -2,6 +2,12 @@
 title: "Re-Server"
 thumbnail: ""
 status: 0
+description: ""
+tags:
+  - TypeScript
+  - Vue.js
+  - NestJS
+  - Firebase 
 ---
 
 プロジェクトの URL：<https://github.com/okakyo/re-server>

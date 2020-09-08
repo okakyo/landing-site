@@ -1,6 +1,10 @@
 <template>
   <div>
-    <doc-nav-list :nav-lists="docLists" :drawer="drawer" />
+    <doc-nav-list
+      :public-lists="publicLists"
+      :draft-lists="draftLists"
+      :drawer="drawer"
+    />
     <v-card outlined>
       <v-toolbar flat>
         <v-app-bar-nav-icon
@@ -23,7 +27,18 @@
           :search-input.sync="search"
           :items="articles"
           label="ドキュメントを検索"
-        />
+        >
+          <template v-slot:item="{ item }">
+            <v-list-item-content
+              color="indigo"
+              class="headline font-weight-light white--text"
+            >
+              <v-list-item-title>
+                {{ item.title }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </template>
+        </v-autocomplete>
       </v-toolbar>
       <v-divider />
       <v-container>
@@ -61,10 +76,12 @@ export default Vue.extend({
   },
   async asyncData({ $content }) {
     const docLists = await $content('projects/about')
-      .only(['title', 'thumbnail', 'slug', 'dir'])
+      .only(['title', 'status', 'thumbnail', 'path', 'slug', 'dir'])
       .fetch()
-    const lists = await $content('projects/about').fetch()
-    return { docLists, lists }
+    const publicLists = docLists.filter((item: any) => item.status === 0)
+    const draftLists = docLists.filter((item: any) => item.status !== 0)
+
+    return { docLists, publicLists, draftLists }
   },
   data() {
     return {
@@ -82,11 +99,10 @@ export default Vue.extend({
       }
 
       this.articles = await this.$content('projects', { deep: true })
-        .only(['title', 'description'])
-        .limit(6)
+        .only(['title'])
+        .limit(5)
         .search(query)
         .fetch()
-      console.log(this.articles)
     },
   },
   methods: {

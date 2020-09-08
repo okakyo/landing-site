@@ -2,6 +2,12 @@
 title: Ionic-react
 thumbnail: ""
 status: 0
+descriiption: ""
+tags:
+  - Firebase
+  - Ionic
+  - TypeScript 
+  
 ---
 
 ## このアプリについて

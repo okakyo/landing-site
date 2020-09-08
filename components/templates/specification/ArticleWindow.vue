@@ -1,6 +1,10 @@
 <template>
   <div>
-    <doc-nav-list :nav-lists="docLists" :drawer="drawer" />
+    <doc-nav-list
+      :public-lists="publicLists"
+      :draft-lists="draftLists"
+      :drawer="drawer"
+    />
     <v-row>
       <v-col cols="12">
         <v-card outlined min-height="600" class="pa-3">
@@ -13,19 +17,23 @@
               {{ page.title }}
             </v-card-title>
             <v-spacer />
-            <v-card-subtitle>
-              <a
-                :href="
-                  'https://github.com/okakyo/landing-site/edit/master/content/' +
-                  page.path +
-                  page.extension
-                "
-                >記事を編集する</a
-              >
-            </v-card-subtitle>
           </v-toolbar>
+
+          <v-spacer />
+          <v-chip-group class="mx-8">
+            <v-chip
+              small
+              label
+              :color="page.status === 0 ? 'success' : 'warning'"
+              >{{ page.status === 0 ? '公開' : '下書き' }}</v-chip
+            >
+            <v-spacer />
+            <v-chip v-for="item in page.tags" :key="item" small>{{
+              item
+            }}</v-chip>
+          </v-chip-group>
           <v-divider />
-          <nuxt-content id="article" class="ma-3 pa-3" :document="page" />
+          <nuxt-content id="article" :document="page" />
         </v-card>
       </v-col>
       <v-col :hidden="$vuetify.breakpoint.smAndDown" md="3" xl="4">
@@ -52,7 +60,11 @@ export default defineComponent({
       type: Object,
       required: true,
     },
-    docLists: {
+    publicLists: {
+      type: Array,
+      required: true,
+    },
+    draftLists: {
       type: Array,
       required: true,
     },
