@@ -1,12 +1,11 @@
 import { Middleware } from '@nuxt/types'
-
+import { firebase } from '@/plugins/firebase.config'
 const middlewareAuth: Middleware = ({ app, redirect }) => {
-  const header = app.$cookies.get('access_token')
-  if (!header) {
-    return redirect('/')
-  } else {
-    // TODO : この部分に使用している人 の Store情報を取得する
-  }
+  firebase.auth().onAuthStateChanged((user) => {
+    if (!user) {
+      return redirect('/')
+    }
+  })
 }
 
 export default middlewareAuth
