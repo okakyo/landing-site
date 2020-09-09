@@ -54,7 +54,9 @@
             <v-card :to="'/docs' + card.dir + '/' + card.slug">
               <v-img
                 :src="
-                  card.thumbnail === '' ? '/images/404-min.png' : card.thumbnail
+                  card.thumbnail && card.thumbnail !== ''
+                    ? card.thumbnail
+                    : '/images/404-min.png'
                 "
               />
               <v-card-subtitle>{{ card.title }}</v-card-subtitle>
@@ -75,12 +77,11 @@ export default Vue.extend({
     DocNavList,
   },
   async asyncData({ $content }) {
-    const docLists = await $content('projects/about')
+    const docLists = await $content('projects', { deep: true })
       .only(['title', 'status', 'thumbnail', 'path', 'slug', 'dir'])
       .fetch()
     const publicLists = docLists.filter((item: any) => item.status === 0)
     const draftLists = docLists.filter((item: any) => item.status !== 0)
-
     return { docLists, publicLists, draftLists }
   },
   data() {
