@@ -8,6 +8,7 @@ export const useGlobalState = () => {
       email: '',
       emailVerified: false,
       photoUrl: '',
+      acceptLogin: false,
     },
   })
 

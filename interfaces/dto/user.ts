@@ -6,6 +6,7 @@ export interface UserInterface {
   email: string
   photoUrl: string
   emailVerified: boolean
+  acceptLogin: boolean
 }
 
 export interface UserDetailInterface extends UserInterface {

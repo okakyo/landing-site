@@ -24,6 +24,7 @@ export default defineComponent({
       .only(['contents'])
       .sortBy('path')
       .fetch()
+
     return {
       serviceDescriptions,
     }

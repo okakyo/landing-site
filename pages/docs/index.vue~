@@ -80,10 +80,11 @@ export default Vue.extend({
     const docLists = await $content('projects', { deep: true })
       .only(['title', 'status', 'thumbnail', 'path', 'slug', 'dir'])
       .fetch()
-    console.log(docLists)
+    console.log(docLists);
     const publicLists = docLists.filter((item: any) => item.status === 0)
     const draftLists = docLists.filter((item: any) => item.status !== 0)
 
+    const mapList
     return { docLists, publicLists, draftLists }
   },
   data() {
