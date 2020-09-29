@@ -67,9 +67,11 @@
     </v-card>
   </div>
 </template>
+
 <script lang="ts">
 import Vue from 'vue'
 import DocNavList from '@/components/molecules/lists/nav/DocNavList.vue'
+
 export default Vue.extend({
   name: 'Question',
   layout: 'doc',
@@ -80,7 +82,6 @@ export default Vue.extend({
     const docLists = await $content('projects', { deep: true })
       .only(['title', 'status', 'thumbnail', 'path', 'slug', 'dir'])
       .fetch()
-    console.log(docLists)
     const publicLists = docLists.filter((item: any) => item.status === 0)
     const draftLists = docLists.filter((item: any) => item.status !== 0)
 
