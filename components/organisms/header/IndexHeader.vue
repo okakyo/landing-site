@@ -122,7 +122,7 @@ export default defineComponent({
 
     async function githubLogin() {
       try {
-        const result = await loginService('GitHub', root.$cookies)
+        const result = await loginService('GitHub')
         if (result && result.result) {
           root.$nextTick(() => (isLogin.value = true))
           router.push('/')

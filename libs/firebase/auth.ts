@@ -8,10 +8,7 @@ export type ResponseHttp = {
   error?: string
 }
 
-export const loginService = async (
-  typeProvider: 'GitHub' | 'Google',
-  cookies: NuxtCookies
-) => {
+export const loginService = async (typeProvider: 'GitHub' | 'Google') => {
   try {
     const provider =
       typeProvider === 'GitHub'
@@ -46,12 +43,7 @@ export const logoutService = async (
   cookies: NuxtCookies
 ): Promise<void | ResponseHttp> => {
   try {
-    await firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        cookies.remove('set-token')
-      })
+    await firebase.auth().signOut()
   } catch (e) {
     return { result: false, error: ParseAuthError(e) }
   }
